@@ -6,7 +6,7 @@ private:
       return;
     }
     for (int i {}; i < v[(digits[k] - '0') - 2].length(); ++i) {
-      _letterCombinations(digits, k + 1, buf + v[(digits[k] - '0') - 2][i], result);
+      _letterCombinations(digits, k + 1, buf + v[(digits[k] - '0') - 2][i], result); // (digits[k] - '0') - 2 is to map to the index of vector v
     }
   }
   vector<string> v {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
