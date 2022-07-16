@@ -14,7 +14,7 @@ private:
     }
     // initializing i to start will take care of other branches duplicates such as [2, 5, 2] and [2, 2, 5] (will only take [2, 2, 5]) similar
     // to the previous way i did which is prev <= candidates[i] but cleaner and precise
-    for (int i {start}; i < int(candidates.size()); ++i) {
+    for (int i {start}; i < int(candidates.size()); ++i) { // int i {start} is a really good trick too
       // when i > start it means it finishes returning and find the next element ++i
       // such element if it was similar to the previous one then u just skip because it's already called when i == start passing i + 1 to the next call
       if (i > start && candidates[i] == candidates[i - 1]) continue; // this handles the duplicates e.g [1, 2, 2] and [1, 2, 2]
@@ -35,7 +35,7 @@ public:
 /**
  * idea : some of the comments are written on the code
  * for clarification : first thing we need to handle is similar to combination I, which is 2, 2, 5 and 2, 5, 2
- * This can be done by initializing i to start because then it will just continue to the next element, 
+ * This can be done by initializing i to start because then it will just continue to the next element,
  * no need to iterate back to the smallest element
  * the magic trick to handle [1*, 1_, 2, 3] so that it won't do [1*, 2, 3] and [1_, 2, 3]
  * is to sort it and we have to check if the next / prev element is the same
