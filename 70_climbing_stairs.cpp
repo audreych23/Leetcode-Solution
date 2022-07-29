@@ -15,3 +15,24 @@ public:
     return mem[n];
   }
 };
+
+/**
+ * DP top down approach
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
+ */
+class Solution {
+  int _climbStairs(int n, vector<int> &mem) {
+    if (n == 0) return 1;
+    if (n < 0) return 0;
+    if (mem[n] != 0) return mem[n]; // second time memorize
+    mem[n] = _climbStairs(n - 1, mem) + _climbStairs(n - 2, mem);
+    return mem[n]; // first time
+  }
+public:
+  int climbStairs(int n) {
+    vector<int> mem(n + 1); // careful of overflow here
+    _climbStairs(n, mem);
+    return mem[n];
+  }
+};
