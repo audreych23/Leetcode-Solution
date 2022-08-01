@@ -36,3 +36,4 @@ public:
     return mem[n];
   }
 };
+// add matrix way maybe?
