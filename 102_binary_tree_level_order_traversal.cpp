@@ -87,3 +87,26 @@ public:
     return ans;
   }
 };
+
+/**
+ * thinking out of the box solution, it's not a level order traversal but a preorder traversal
+ * then we modify the output into a level order output
+ */
+class Solution {
+  vector<vector<int>> ans;
+  void modified_preorder(TreeNode* root, int depth) {
+    if (root != nullptr) {
+      if (ans.size() == depth) {
+        ans.push_back(vector<int>());
+      }
+      ans[depth].push_back(root->val);
+      modified_preorder(root->left, depth + 1);
+      modified_preorder(root->right, depth + 1);
+    }
+  }
+public:
+  vector<vector<int>> levelOrder(TreeNode* root) {
+    modified_preorder(root, 0);
+    return ans;
+  }
+};
