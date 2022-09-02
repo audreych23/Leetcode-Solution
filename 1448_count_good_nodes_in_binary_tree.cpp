@@ -33,3 +33,13 @@ public:
     return cnt;
   }
 };
+
+/**
+ * oneline beautiful solution
+ */
+class Solution {
+public:
+  int goodNodes(TreeNode* root, int max = -10001) {
+    return root != nullptr ? goodNodes (root->left, std::max(max, root->val)) + goodNodes(root->right, std::max(max, root->val)) + (max <= root->val) : 0;
+  }
+};
