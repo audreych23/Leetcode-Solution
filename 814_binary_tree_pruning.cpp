@@ -1,6 +1,8 @@
 /**
  * Time complexity: O(n)
  * Space complexity: O(n)
+ * idea: bottom up approach, prune it starting from leave and do it until root
+ * (because leaf is the easiest to prune no subtree)
  */
 /**
  * Definition for a binary tree node.
