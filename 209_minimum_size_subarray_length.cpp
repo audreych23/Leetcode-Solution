@@ -1,3 +1,8 @@
+/**
+ * Double Pointer
+ * Time Complexity : O(n)
+ * Space Complexiy : O(1)
+ */
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
@@ -30,13 +35,12 @@ public:
             sum -= nums[ptr1];
             ptr1++;
         }
-        // final check 
+        // final check : case if final number is target
         if (sum >= target) {
             int l = ptr2 - ptr1;
             if (l < min) {
                 min = l;
             }
-            // case if final number is target
         }
         if (min == numeric_limits<int>::max()) return 0;
         return min;
