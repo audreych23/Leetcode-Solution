@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int chalkReplacer(vector<int>& chalk, int k) {
+        unsigned int n = chalk.size();
+        vector<unsigned long long> prefix;
+        std::transform(chalk.begin(), chalk.end(), std::back_inserter(prefix), [](const int value)
+        { 
+            return static_cast<unsigned long long>(value); 
+        });
+        for (unsigned int i = 1; i < n; ++i) {
+            prefix[i] += prefix[i - 1];
+        }
+        unsigned long long res = (unsigned long long) k % prefix[n - 1];
+        if (res == 0) return 0;
+        else {
+            for (int i = 0; i < n; ++i) {
+                if (res < prefix[i]) return i;
+            }
+        }
+        return 0;
+    }
+};
